@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -25,6 +26,7 @@ public class InitFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private Button btnNextFragment;
+    private EditText etField;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -71,11 +73,15 @@ public class InitFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        etField = getView().findViewById(R.id.etField);
         btnNextFragment = getView().findViewById(R.id.btn_next_fragment);
         btnNextFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_initFragment_to_secondFragment);
+                String field = etField.getText().toString();
+                Bundle bundle = new Bundle();
+                bundle.putString("EXTRA_VALUE", field);
+                Navigation.findNavController(view).navigate(R.id.action_initFragment_to_secondFragment,bundle);
             }
         });
     }
