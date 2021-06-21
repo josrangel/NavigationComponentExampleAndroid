@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
  * Tutorial
  * https://developer.android.com/guide/navigation/navigation-getting-started
  * https://dev.to/gvetri/como-usar-el-android-navigation-component-4hhg
+ * https://developer.android.com/guide/navigation/navigation-design-graph
  */
 public class MainActivity extends AppCompatActivity {
 
